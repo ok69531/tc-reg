@@ -39,7 +39,6 @@ def load_args():
     # data arguments
     parser.add_argument('--data_path', default = '../dataset', type = str)
     parser.add_argument('--assay_name', default = None, type = str)
-    parser.add_argument('--tg_num', default = None, type = int, help = '403, 412')
     parser.add_argument('--test_size', default = 0.2, type = float)
     parser.add_argument('--random_state', default = 42, type = int)
     parser.add_argument('--fp_type', default = 'maccs', type = str, help = 'maccs, morgan, rdkit, layered, pattern')
@@ -60,14 +59,11 @@ def main():
     args = load_args()
     logging.info(args)
 
-    if args.tg_num is None:
-        save_path = f'saved_result/{args.assay_name}'
-    else: 
-        save_path = f'saved_result/tg{args.tg_num}'
+    save_path = f'saved_result/{args.assay_name}'
     
     x, y, smiles = load_dataset(
         root = args.data_path,
-        tg_num = args.tg_num,
+        assay_name = args.assay_name,
         fp_type = args.fp_type,
         log_transform = args.log_transform
     )
