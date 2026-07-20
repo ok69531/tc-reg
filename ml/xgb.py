@@ -89,7 +89,7 @@ def main():
         "learning_rate": [0.01, 0.03, 0.1],
         "max_depth": [3, 4, 6],
         "min_child_weight": [1, 5],
-        "subsample": [0.8, 1.0],
+        # "subsample": [0.8, 1.0],
         'objective': ['reg:absoluteerror']
     }
     params = ParameterGrid(params_dict)

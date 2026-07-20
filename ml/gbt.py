@@ -84,11 +84,18 @@ def main():
     #     x_tr = x_tr[:, top_idx]
     #     x_te = x_te[:, top_idx]
     
+    # params_dict = {
+    #     "n_estimators": [5, 10, 50, 100, 150, 300],
+    #     'learning_rate': [0.1, 0.05, 0.01, 0.005, 0.001],
+    #     'max_depth': [3, 5],
+    #     'min_samples_split': [2, 3],
+    #     'loss': ['absolute_error', 'huber']
+    # }
     params_dict = {
-        "n_estimators": [5, 10, 50, 100, 150, 300],
+        "n_estimators": [5, 10, 50, 100, 150],
         'learning_rate': [0.1, 0.05, 0.01, 0.005, 0.001],
         'max_depth': [3, 5],
-        'min_samples_split': [2, 3],
+        # 'min_samples_split': [2, 3],
         'loss': ['absolute_error', 'huber']
     }
     params = ParameterGrid(params_dict)
